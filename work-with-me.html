@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Me - Camilo Hernandez</title>
+  <script>
+  
+  function toggleMobileMenu() {
+      const mobileNav = document.querySelector('#mobile-nav ul');
+      mobileNav.classList.toggle('active'); // Toggle visibility with the active class
+    }
+
+    // Close mobile menu when resizing to larger screens
+    window.addEventListener('resize', () => {
+      const mobileNav = document.querySelector('#mobile-nav ul');
+      if (window.innerWidth > 768) {
+        mobileNav.classList.remove('active'); // Hide on larger screens
+      }
+    });
+</script>
+
+
+</script>
+
+
+  </script>
+  <style>
+    /* Reset styles */
+    body, div, ul, li, a {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #1f1f1f; /* Dark theme for the background */
+    }
+  /* Navigation bar styles */
+  #navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: rgba(19, 21, 27, 0.82);
+  position: absolute; /* Make the navbar fixed at the top */
+  top: 0; /* Ensure it stays at the top */
+  width: 100%; /* Stretch to cover full width */
+  z-index: 10;
+}
+.logo img {
+  height: 70px; /* Adjust logo height */
+  margin-left: 20px;
+}
+    #navbar nav {
+      margin-left: auto;
+    }
+    #navbar nav ul {
+      display: flex;
+      list-style: none;
+    }
+    #navbar nav ul li {
+      margin: 0 10px;
+    }
+    #navbar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 15px;
+      display: block;
+    }
+    #navbar nav ul li a:hover {
+      background-color: rgba(79, 90, 113, 0.862);
+     
+    }
+    .search-bar input {
+      padding: 8px 10px;
+      font-size: 14px;
+      width: 200px;
+      background-color: rgba(31, 35, 44, 0.749);
+      color: white;
+      border: none;
+    }
+    .search-bar button {
+      background-color: #444;
+      color: white;
+      padding: 5px 10px;
+      margin-right: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+/* Mobile Navbar Styles */
+#mobile-navbar {
+  display: none; /* Hidden by default */
+  background-color: rgba(19, 21, 27, 0.82);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mobile-navbar .logo img {
+  height: 50px; /* Adjust logo size for mobile */
+}
+
+#mobile-menu-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin-left: auto; /* Align to the right */
+  display: block;
+}
+
+/* Make the mobile menu visible when active */
+#mobile-nav ul {
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Ensure it's vertical */
+  margin-top: 10px;
+      background-color: rgba(31, 31, 31, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      list-style: none;
+}
+
+#mobile-nav ul.active {
+      display: flex;
+    }
+
+    #mobile-nav ul li {
+      margin-bottom: 10px;
+    }
+
+    #mobile-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px;
+      display: block;
+    }
+
+    #mobile-nav ul li a:hover {
+      background-color: rgba(79, 90, 113, 0.862);
+    }
+
+    /* Show regular navbar and hide mobile navbar on wider screens */
+    @media (min-width: 769px) {
+      #mobile-navbar {
+        display: none;
+      }
+      
+      #navbar {
+        display: flex;
+      }
+    }
+
+    /* Show mobile navbar and hide regular navbar on smaller screens */
+    @media (max-width: 768px) {
+      #navbar {
+        display: none;
+      }
+
+      #mobile-navbar {
+        display: flex;
+      }
+    }
+
+    /* Hero Banner */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Ideal banner size */
+  overflow: hidden; /* Ensures the video doesn’t exceed the banner area */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-banner video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the area */
+  z-index: -1; /* Places the video behind the content */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text visibility */
+  z-index: 0; /* Places the overlay above the video */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Ensures content appears above the overlay and video */
+}
+.subtitle {
+    max-width: 600px; 
+    align-content: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+
+    /* White Block Section */
+    .white-block {
+      background-color: white;
+      color: #333;
+      padding: 50px 20px;
+    }
+
+    .white-block-content {
+      display: flex;
+      flex-wrap: wrap; /* Makes it responsive */
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    .white-block-image {
+      flex: 1;
+      text-align: center; /* Centers the image */
+    }
+
+    .white-block-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px; /* Optional for rounded corners */
+    }
+
+    .white-block-text {
+      flex: 1;
+    }
+
+    .white-block-text h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #4caf50; /* Highlighted green title */
+    }
+
+    .white-block-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .white-block-text ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .white-block-text ul li {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .white-block-text ul li img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .headshot-contact {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .headshot-contact img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .headshot-contact div h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #4caf50; /* Match title color */
+    }
+
+    .headshot-contact div p {
+      margin: 5px 0;
+    }
+
+    .headshot-contact div a {
+      color: #0073e6; /* Blue links for contact info */
+      text-decoration: none;
+    }
+
+    .headshot-contact div a:hover {
+      text-decoration: underline;
+    }
+
+ /* New Services Section */
+ .services-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 50px;
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+.services-section {
+  background-color: #f0f0f0; /* Light gray background */
+  padding: 50px 20px;
+}
+
+.service-card {
+  background-color: white;
+  padding: 15px;
+  width: 200px;
+  height: auto; /* Allow cards to adjust height dynamically */
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-card img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  padding: 0.5rem 1.5rem;
+  border: solid;
+  border-color: #e63946;
+  color: #e63946;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.cta-button-hero{
+  padding: 0.5rem 1.5rem;
+      
+      background-color:  #e63946;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    
+      z-index: 1000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .services-container {
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .service-card {
+    width: 150px;
+  }
+}
+
+    /* Contact Section */
+    .contact-section {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background-image: url(Img/team-meeting.png); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Black overlay */
+    }
+
+    .contact-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      color: white;
+    }
+
+    .contact-content {
+      flex: 1;
+      padding-right: 20px;
+      text-align: left;
+    }
+
+    .contact-content h2 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .contact-content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .contact-section-right {
+      flex: 1;
+      text-align: left;
+    }
+
+    .contact-section-right h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section-right p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .contact-section-right a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .contact-section-right a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contact-content,
+      .contact-section-right {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+
+    .h3-contact {
+      font-weight: normal;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(31, 35, 44, 0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div id="navbar">
+        <div class="logo">
+          <a href="https://www.yourwebsite.com">
+            <img src="Img/aretee logo.png" alt="Website Logo">
+          </a>
+        </div>
+    
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work-with-me.html">Work With Me</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Search Bar -->
+    <div class="search-bar">
+        <form action="https://www.yourwebsite.com/search">
+          <input type="search" placeholder="Search..." aria-label="Search">
+          <button type="submit">
+            <img src="Img/search icon.svg" alt="Search Icon" width="16" height="16">
+              <path fill="currentColor" d="m15.683 14.6 3.265 3.265a.2.2 0 0 1 0 .282l-.8.801a.2.2 0 0 1-.283 0l-3.266-3.265a5.961 5.961 0 1 1 1.084-1.084zm-4.727 1.233a4.877 4.877 0 1 0 0-9.754 4.877 4.877 0 0 0 0 9.754z"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Navbar (hidden by default) -->
+<div id="mobile-navbar">
+  <div class="logo">
+    <a href="https://www.yourwebsite.com">
+      <img src="Img/aretee logo.png" alt="Website Logo">
+    </a>
+  </div>
+  <div id="mobile-menu-icon" onclick="toggleMobileMenu()">☰</div>
+
+<nav id="mobile-nav" class="hidden">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work-with-me.html">Work With Me</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+</div>
+
+  <!-- Hero Banner -->
+<div class="hero-banner">
+    <!-- Video Background -->
+    <video autoplay muted loop>
+      <source src="Video/work-with-us.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
+  
+    <!-- Content -->
+    <div class="hero-content">
+      <h1>Shape Your Digital Future</h1>
+      <p class="subtitle">Drive success with AI-powered marketing, design, and development solutions tailored to your needs.</p>
+      <a href="contact.html" class="cta-button-hero">Contact Us</a>
+    </div>
+  </div>
+  
+
+  <!-- White Block Section -->
+  <div class="white-block">
+    <div class="white-block-content">
+      <!-- Left Column: Image -->
+      <div class="white-block-image">
+        <img src="Img/Graphics-1.png" alt="Business Success Image">
+      </div>
+
+      <!-- Right Column: Text -->
+      <div class="white-block-text">
+        <h2>Elevate Your Business to the Top</h2>
+        <p>Achieve success with tailored strategies, expert marketing, and growth-driven solutions designed to put you ahead.</p>
+        <p>Here’s how we make it happen:</p>
+        
+        <!-- Bullet List with Icons -->
+        <ul>
+          <li><img src="Icons/Icons/check mark.png" alt="Strategy Icon"> AI-Powered Web Design & Development</li>
+          <li><img src="Icons/Icons/check mark.png" alt="Marketing Icon"> Data-Driven SEO & Digital Marketing </li>
+          <li><img src="Icons/Icons/check mark.png" alt="Growth Icon"> Social Media Management & Content Creation </li>
+        </ul>
+
+        <!-- Headshot and Contact Info -->
+        <div class="headshot-contact">
+          <img src="Img/Camilo Headshot .png" alt="Camilo Hernandez Headshot">
+          <div>
+            <h3>Camilo Hernandez</h3>
+            <p>Founder</p>
+            <p><a href="mailto:camilo@example.com">camilo@example.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- New Services Section -->
+<div class="services-section">
+    <h2 style="text-align: center; margin-bottom: 10px; color: #333;">Our Services</h2>
+    <p style="text-align: center; margin-bottom: 30px; color: #666;">Unlock the full potential of your brand with our AI-powered marketing, custom web development, and strategic growth solutions.</p>
+    <div class="services-container">
+      <div class="service-card">
+        <img src="Icons/Icons/business solution.svg" alt="Consulting Icon"> <!-- Icon Placeholder -->
+        <h3>AI-Enhanced Graphic Design & Branding</h3>
+        <p>Craft unique, visually stunning designs with AI, creating impactful brand identities and graphics.</p>
+        <a href="services.html" class="cta-button">Learn more &gt;&gt;</a>
+      </div>
+      <div class="service-card">
+        <img src="Icons/Icons/Creative layout.svg" alt="Training Icon"> <!-- Icon Placeholder -->
+        <h3>AI-Driven Marketing Solutions</h3>
+        <p>Harness data and AI to create targeted marketing strategies that drive measurable results.</p>
+        <a href="services.html" class="cta-button">Learn more &gt;&gt;</a>
+      </div>
+      <div class="service-card">
+        <img src="Icons/Icons/online marketing.svg" alt="Growth Solutions Icon"> <!-- Icon Placeholder -->
+        <h3>SEO & Growth Optimization</h3>
+        <p>Utilize AI and analytics to boost search rankings and support long-term business growth.</p>
+        <a href="services.html" class="cta-button">Learn more &gt;&gt;</a>
+      </div>
+      <div class="service-card">
+        <img src="Icons/Icons/web development.svg" alt="Design Icon"> <!-- Icon Placeholder -->
+        <h3>Custom Web Design & Development</h3>
+        <p>Develop dynamic, user-centric websites with cutting-edge design and AI-powered functionality.
+        </p>
+        <a href="services.html" class="cta-button">Learn more &gt;&gt;</a>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Contact Section -->
+<div class="contact-section">
+    <div class="contact-overlay"></div>
+    <div class="contact-container" style="text-align: center; max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 10px;">
+      <div class="contact-content" style="flex: 1; text-align: left;">
+        <h2>Got a Project in Mind?</h2> 
+        <h3 class="h3-contact"> Let’s bring your vision to life with innovative, AI-driven solutions. Reach out today!</h3><!-- H2 split into two lines -->
+      </div>
+      <div class="contact-section-right" style="flex: 1; color:#1f1f1f; text-align: center; max-width: 300px;">
+        <div style="background-color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h3>Contact Information</h3>
+          <p>Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+          <p>Phone: <a href="tel:+1234567890">+1 234 567 890</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Camilo Hernandez. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

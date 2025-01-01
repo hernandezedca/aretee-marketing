@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aretee Marketing Solutions</title>
+  <script>
+  
+    function toggleMobileMenu() {
+        const mobileNav = document.querySelector('#mobile-nav ul');
+        mobileNav.classList.toggle('active'); // Toggle visibility with the active class
+      }
+  
+      // Close mobile menu when resizing to larger screens
+      window.addEventListener('resize', () => {
+        const mobileNav = document.querySelector('#mobile-nav ul');
+        if (window.innerWidth > 768) {
+          mobileNav.classList.remove('active'); // Hide on larger screens
+        }
+      });
+  </script>
+  <style>
+    /* Reset some default styles */
+    body, div, ul, li, a {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Full-screen background video */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.90;
+    }
+
+    /* Overlay with 80% transparency black color */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.344);
+      z-index: -1;
+    }
+
+    /* Navigation bar styles */
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 15px;
+      background-color: rgba(19, 21, 27, 0.82);
+      position: relative;
+      z-index: 1;
+    }
+    .logo img {
+      width: 120px;
+      height: auto;
+      margin-left: 30px;
+    }
+    #navbar nav {
+      margin-left: auto;
+    }
+    #navbar nav ul {
+      display: flex;
+      list-style: none;
+    }
+    #navbar nav ul li {
+      margin: 0 10px;
+    }
+    #navbar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 15px;
+      display: block;
+    }
+    #navbar nav ul li a:hover {
+      background-color: rgba(79, 90, 113, 0.862);
+     
+    }
+    .search-bar input {
+      padding: 8px 10px;
+      font-size: 14px;
+      width: 200px;
+      background-color: rgba(31, 35, 44, 0.749);
+      color: white;
+      border: none;
+    }
+    .search-bar button {
+      background-color: #444;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Mobile Navbar Styles */
+#mobile-navbar {
+  display: none; /* Hidden by default */
+  background-color: rgba(19, 21, 27, 0.82);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#mobile-navbar .logo img {
+  height: 50px; /* Adjust logo size for mobile */
+}
+
+#mobile-menu-icon {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin-left: auto; /* Align to the right */
+  display: block;
+}
+
+/* Make the mobile menu visible when active */
+#mobile-nav ul {
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Ensure it's vertical */
+  margin-top: 10px;
+      background-color: rgba(31, 31, 31, 0.9);
+      padding: 10px;
+      border-radius: 5px;
+      list-style: none;
+}
+
+#mobile-nav ul.active {
+      display: flex;
+    }
+
+    #mobile-nav ul li {
+      margin-bottom: 10px;
+    }
+
+    #mobile-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px;
+      display: block;
+    }
+
+    #mobile-nav ul li a:hover {
+      background-color: rgba(79, 90, 113, 0.862);
+    }
+
+    /* Show regular navbar and hide mobile navbar on wider screens */
+    @media (min-width: 769px) {
+      #mobile-navbar {
+        display: none;
+      }
+      
+      #navbar {
+        display: flex;
+      }
+    }
+
+    /* Show mobile navbar and hide regular navbar on smaller screens */
+    @media (max-width: 768px) {
+      #navbar {
+        display: none;
+      }
+
+      #mobile-navbar {
+        display: flex;
+      }
+    }
+
+    /* Main content styles */
+    .main-content {
+      position: relative;
+      z-index: 1;
+      text-align: left;
+      padding: 150px 40px;
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 600px;
+      color: white;
+    }
+    .main-content h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-align: left;
+      margin-left: 20px;
+    }
+    .main-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      text-align: left;
+      margin-left: 20px;
+    }
+
+    .home-button {
+      padding: 0.8rem 2rem;
+      background: #e63946;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      text-align: left;
+      margin-left: 20px;
+      border: none;
+    }
+
+    .home-button:hover {
+      background: #d62828;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: rgba(31, 35, 44, 0.8);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .logo img {
+        width: 100px;
+      }
+      #navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      #navbar nav ul li {
+        margin: 5px 0;
+      }
+      .search-bar input {
+        width: 150px;
+      }
+      .main-content {
+        padding: 100px 20px;
+      }
+      .main-content h1 {
+        font-size: 36px;
+      }
+      .main-content p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo img {
+        width: 80px;
+      }
+      .main-content {
+        padding: 80px 15px;
+      }
+      .main-content h1 {
+        font-size: 28px;
+      }
+      .main-content p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="video-background" autoplay muted loop>
+    <source src="Video/Video Background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay -->
+  <div class="video-overlay"></div>
+
+  <!-- Navigation Bar -->
+  <div id="navbar">
+    <div class="logo">
+      <a href="https://www.yourwebsite.com">
+        <img src="Img/aretee logo.png" alt="Website Logo">
+      </a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work-with-me.html">Work With Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <form action="https://www.yourwebsite.com/search">
+        <input type="search" placeholder="Search..." aria-label="Search">
+        <button type="submit">
+          <img src="Img/search icon.svg" alt="Search Icon" width="16" height="16">
+            <path fill="currentColor" d="m15.683 14.6 3.265 3.265a.2.2 0 0 1 0 .282l-.8.801a.2.2 0 0 1-.283 0l-3.266-3.265a5.961 5.961 0 1 1 1.084-1.084zm-4.727 1.233a4.877 4.877 0 1 0 0-9.754 4.877 4.877 0 0 0 0 9.754z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+    <!-- Mobile Navbar (hidden by default) -->
+    <div id="mobile-navbar">
+      <div class="logo">
+        <a href="https://www.yourwebsite.com">
+          <img src="Img/aretee logo.png" alt="Website Logo">
+        </a>
+      </div>
+      <div id="mobile-menu-icon" onclick="toggleMobileMenu()">☰</div>
+    
+    <nav id="mobile-nav" class="hidden">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work-with-me.html">Work With Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    
+    </div>
+  <!-- Main Content Section -->
+  <div class="main-content">
+    <h1>
+      Boost Your Brand with Smart Marketing
+    </h1>
+    <p class="subtext">Elevate your brand with innovative strategies, cutting-edge digital solutions, and results-driven marketing. <br> Let's unlock your business’s full potential together.</p>
+    <a href="contact.html"><button class="home-button"> Get in Touch</button></a>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Camilo Hernandez. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
